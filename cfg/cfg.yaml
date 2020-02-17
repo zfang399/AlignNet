@@ -1,0 +1,65 @@
+################################################################################
+# Dataset options
+################################################################################
+# path
+video_feature_root: "/media/ExtraDrive2/jianrenw/multi/lip_12ormore_vid_sepnormed"
+audio_feature_root: "/media/ExtraDrive2/jianrenw/multi/lip_12ormore_mp3"
+train_txt_path: "/media/ExtraDrive2/jianrenw/multi/multimodal_sync/datasets/dataset_config/training_paths_lip_12s.txt"
+val_txt_path: "/media/ExtraDrive2/jianrenw/multi/multimodal_sync/datasets/dataset_config/validation_paths_lip_12s.txt"
+test_txt_path: "/media/ExtraDrive2/jianrenw/multi/multimodal_sync/datasets/dataset_config/testing_paths_lip_12s.txt"
+# audio
+num_mels: 80                  # number of mel bins
+mel_sr: 44100                 # audio sampling rate
+mel_n_fft: 1024 #2048         # n_fft
+mel_hop: 256 #512             # hop length
+f_min: 125                    # minimum frequency
+f_max: 7600                   # maximum frequency
+# video
+vid_framerate: 25             # frames per second
+sample_duration: 12           # sample duration in seconds
+num_lip_keypoints: 20         # number of lip keypoints
+num_lip_attention: 12         # number of lip attentions
+lip_attention_to_keypoints: [0,1,2,3,2,1,0,4,5,6,5,4,8,7,11,7,8,9,10,9]
+################################################################################
+# Network options
+################################################################################
+num_pyrs: 4                   # number of pyramids 
+pyr_channel: 128              # base number of channels (in the first pyramid)
+addon_channel: 64             # base number of channels to add on for the extractor (in the lowest level)
+dp_channel: 256               # base number of channels for direct predictor
+################################################################################
+# Data settings
+################################################################################
+# audio (spectrogram) augmentation
+prob_freqmask: 0.5            # float between 0 and 1, the probability of applying frequency masking
+min_freqmask: 3               # integer between 0 and num_mels, the mininum stripe of frequency to mask
+max_freqmask: 10              # integer between 0 and num_mels, the maximum stripe of frequency to mask
+prob_timemask: 0.5            # float between 0 and 1, the probability of applying time masking
+min_timemask: 5               # positive integer (maximum depends on sample_duration), the mininum stripe of time to mask
+max_timemask: 20              # positive integer (maximum depends on sample_duration), the maximum stripe of time to mask
+# video (keypoints) augmentation
+prob_horizontal_flip: 0.5     # float between 0 and 1, the probability of flipping horizontally
+# distortion / stretch / shift settings
+max_distortion: 4             # float in seconds, the max difference a video frame can deviates from original time
+max_stretch: 14               # float in seconds, the max length the video can be stretched to
+min_stretch: 10               # float in seconds, the min length the video can be compressed to
+max_shift: 2                  # float in seconds, the max global shift the video can have
+random_resample_rate: 0.1     # float between 0 and 1, the number of turning points
+# attention settings
+keypoint_attention: True      # whether to add keypoint attention
+temporal_attention: True      # whether to add temporal attention
+################################################################################
+# Training options
+################################################################################
+# 
+n_epoch: 1000                 # number of epochs
+lr: 0.0001                    # learning rate for Adam
+# dataloader
+batch_size: 32                # batch size
+num_workers: 8                # number of parallel workers for DataLoader
+# loss caculation
+multilevel_supervision: True  # whether to have supervision at multiple levels of the pyramids
+# Logging options
+save_epoch: 30                # save model and generate demo every save_epoch epochs
+log_batch: 30                 # log losses every log_batch epochs
+
