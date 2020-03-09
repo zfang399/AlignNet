@@ -1,4 +1,7 @@
 # AlignNet
+
+![](images/sync_teaser.jpg)
+
 This is the codebase for "AlignNet: A Unifying Approach to Audio-Visual Alignment", WACV 2020 <br/>
 Website: <url>https://jianrenw.github.io/AlignNet/</url>
 
