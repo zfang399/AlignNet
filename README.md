@@ -2,8 +2,9 @@
 
 ![](images/sync_teaser.jpg)
 
-This is the codebase for "AlignNet: A Unifying Approach to Audio-Visual Alignment", WACV 2020 <br/>
-Website: <url>https://jianrenw.github.io/AlignNet/</url>
+This is the codebase for "AlignNet: A Unifying Approach to Audio-Visual Alignment", WACV 2020 <br/> \
+Project page: <url>https://jianrenw.github.io/AlignNet/</url> \
+Paper: <url>https://arxiv.org/abs/2002.05070</url> \
 
 ### Training:
 <pre>
