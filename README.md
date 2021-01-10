@@ -6,6 +6,9 @@ This is the codebase for "AlignNet: A Unifying Approach to Audio-Visual Alignmen
 Project page: <url>https://jianrenw.github.io/AlignNet/</url> \
 Paper: <url>https://arxiv.org/abs/2002.05070</url>
 
+### Dance50 Dataset:
+The dataset can be downloaded from [this link](https://drive.google.com/drive/folders/1nxT0mZfaHE-FGhIQidDZHsBZ3cNRVb2z?usp=sharing).
+
 ### Training:
 <pre>
 python3 train.py --mode train --local_distortion --global_stretch --global_shift --experiment_name <i>YOUR_EXPERIMENT_NAME</i> --log_dir <i>YOUR_LOG_DIRECTORY</i>
